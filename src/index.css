@@ -1,0 +1,39 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #1a1714;
+  --ink-soft: #4a453f;
+  --ink-faint: #9a9088;
+  --paper: #f5f0e8;
+  --paper-warm: #ede7d9;
+  --paper-card: #faf7f2;
+  --accent: #c94f2a;
+  --accent-soft: #e8926e;
+  --accent-bg: #fdf0eb;
+  --border: #d6cfc4;
+  --border-strong: #b8b0a4;
+  --serif: 'DM Serif Display', serif;
+  --sans: 'Instrument Sans', sans-serif;
+  --mono: 'DM Mono', monospace;
+  --radius: 4px;
+  --shadow: 0 1px 3px rgba(26,23,20,0.08), 0 4px 16px rgba(26,23,20,0.06);
+  --shadow-hover: 0 4px 12px rgba(26,23,20,0.12), 0 8px 32px rgba(26,23,20,0.1);
+}
+
+html { font-size: 16px; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+input, select { font-family: inherit; }
+a { color: inherit; text-decoration: none; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--paper-warm); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
