@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 const TOKEN = import.meta.env.VITE_AIRTABLE_TOKEN
-const BASE_ID = import.meta.env.VITE_AIRTABLE_BASE_ID
+const BASE_ID = 'app4jPwliS62HdqLp'
 const TABLE = 'Sign_Language_Corpus'
 
 async function fetchAllRecords() {
@@ -20,9 +20,9 @@ async function fetchAllRecords() {
       return {
         id: r.id,
         gloss: f.gloss || null,
-        language: Array.isArray(f.language) ? null : (f.language || null),
-        signer_id: Array.isArray(f.signer_id) ? null : (f.signer_id || null),
-        university: f.university || null,
+        language: f.language_text || null,
+        university: f.university_text || null,
+        signer_id: Array.isArray(f.signer_id) ? f.signer_id[0] : (f.signer_id || null),
         sign_id: f.sign_id || null,
         video_url: f.video_url || null,
         youtube_timestamp: f.youtube_timestamp || null,
@@ -31,7 +31,7 @@ async function fetchAllRecords() {
     allRecords = [...allRecords, ...records]
     offset = data.offset
   } while (offset)
-  return allRecords
+  return allRecords.sort((a, b) => (a.gloss || '').localeCompare(b.gloss || ''))
 }
 
 export function useSignData() {
