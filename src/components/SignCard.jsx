@@ -91,7 +91,7 @@ export default function SignCard({ sign, onClick }) {
 
       {/* Card body */}
       <div style={{ padding: '14px 16px 16px', flex: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>
-        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
           <h3 style={{
             fontFamily: 'var(--serif)',
             fontSize: '20px',

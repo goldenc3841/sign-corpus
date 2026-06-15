@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const TOKEN = 'pat8OghzyyESvfRVT.0814c3a3a7a82b14920e44dfe38df528f0b12611ad973500825edc82da5dff3b'
+const TOKEN = import.meta.env.VITE_AIRTABLE_TOKEN
 const BASE_ID = 'app4jPwliS62HdqLp'
 const TABLE = 'Sign_Language_Corpus'
 

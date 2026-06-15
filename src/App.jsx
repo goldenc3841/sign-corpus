@@ -38,7 +38,7 @@ export default function App() {
       {/* Header */}
       <header style={{
         borderBottom: '1.5px solid var(--border)',
-        background: 'var(--paper)',
+        background: '#f0f7fa',
         position: 'sticky',
         top: 0,
         zIndex: 100,
