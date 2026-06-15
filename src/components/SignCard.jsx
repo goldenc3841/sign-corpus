@@ -111,7 +111,7 @@ export default function SignCard({ sign, onClick }) {
               background: langColor.bg,
               color: langColor.text,
               border: `1px solid ${langColor.border}`,
-              whiteSpace: 'nowrap',
+              whiteSpace: 'normal',
               flexShrink: 0,
               letterSpacing: '0.04em',
             }}>
@@ -122,7 +122,6 @@ export default function SignCard({ sign, onClick }) {
 
         <div style={{ fontSize: '12px', color: 'var(--ink-faint)', fontFamily: 'var(--mono)', display: 'flex', flexDirection: 'column', gap: '3px' }}>
           {sign.university && <span>{sign.university}</span>}
-          {sign.signer_id && <span>Signer {sign.signer_id}</span>}
         </div>
       </div>
     </div>
