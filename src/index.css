@@ -12,8 +12,8 @@
   --accent-bg: #e8f4f8;
   --border: #c2dce6;
   --border-strong: #8fc4d4;
---serif: 'Nunito Sans', sans-serif;
-  --sans: 'Nunito Sans', sans-serif;
+--serif: 'Inter', sans-serif;
+  --sans: 'Inter', sans-serif;
   --mono: 'DM Mono', monospace;
   --radius: 4px;
   --shadow: 0 1px 3px rgba(26,23,20,0.08), 0 4px 16px rgba(26,23,20,0.06);
