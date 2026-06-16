@@ -90,22 +90,6 @@ export default function FilterPanel({ filters, onChange, languages, universities
         </select>
       </div>
 
-      <div style={styles.divider} />
-
-      <div style={styles.group}>
-        <span style={styles.label}>Signer</span>
-        <select
-          style={styles.select}
-          value={filters.signer}
-          onChange={e => set('signer', e.target.value)}
-          onFocus={e => e.target.style.borderColor = 'var(--accent)'}
-          onBlur={e => e.target.style.borderColor = 'var(--border)'}
-        >
-          <option value="">All signers</option>
-          <option value="native">Native signers only</option>
-        </select>
-      </div>
-
       <span style={styles.count}>
         {resultCount === totalCount
           ? `${totalCount} signs`
