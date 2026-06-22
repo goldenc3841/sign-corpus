@@ -136,18 +136,35 @@ function Header() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '20px 0 16px',
-          borderBottom: '1px solid var(--border)',
+          padding: '4px 0',
         }}>
-          <h1 style={{
-            fontFamily: 'var(--serif)',
-            fontSize: '22px',
-            fontWeight: 400,
-            color: 'var(--ink)',
-            lineHeight: 1,
-          }}>
-            Global Sign Language Corpus
-          </h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <img
+              src="/vislex-logo.png"
+              alt="VISLEX logo"
+              style={{ height: '80px', width: 'auto' }}
+            />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              <h1 style={{
+                fontFamily: 'var(--serif)',
+                fontSize: '44px',
+                fontWeight: 400,
+                color: 'var(--ink)',
+                lineHeight: 1,
+                margin: 0,
+              }}>
+                VISLEX
+              </h1>
+              <span style={{
+                fontSize: '13px',
+                fontWeight: 400,
+                color: 'var(--ink)',
+                letterSpacing: '0.04em',
+              }}>
+                Virtual Sign Language Exchange Corpus
+              </span>
+            </div>
+          </div>
           <nav style={{ display: 'flex', gap: '8px' }}>
             <NavLink to="/" end style={navLinkStyle}>Signs</NavLink>
             <NavLink to="/conversations" style={navLinkStyle}>Conversations</NavLink>

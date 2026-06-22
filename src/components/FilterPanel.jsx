@@ -5,20 +5,18 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     gap: '10px',
-    alignItems: 'center',
+    alignItems: 'flex-end',
   },
   label: {
-    fontSize: '11px',
-    fontFamily: 'var(--mono)',
-    letterSpacing: '0.08em',
-    textTransform: 'uppercase',
-    color: 'var(--ink-faint)',
-    marginRight: '2px',
+    fontSize: '13px',
+    fontFamily: 'var(--sans)',
+    color: 'var(--ink)',
+    marginBottom: '4px',
   },
   group: {
     display: 'flex',
-    alignItems: 'center',
-    gap: '6px',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
   },
   select: {
     padding: '8px 28px 8px 10px',
@@ -26,6 +24,7 @@ const styles = {
     border: '1.5px solid var(--border)',
     borderRadius: 'var(--radius)',
     fontSize: '13px',
+    fontFamily: 'var(--sans)',
     color: 'var(--ink)',
     cursor: 'pointer',
     appearance: 'none',
@@ -40,12 +39,16 @@ const styles = {
     height: '20px',
     background: 'var(--border)',
     margin: '0 4px',
+    alignSelf: 'flex-end',
+    marginBottom: '8px',
   },
   count: {
     fontFamily: 'var(--mono)',
     fontSize: '12px',
     color: 'var(--ink-faint)',
     marginLeft: 'auto',
+    alignSelf: 'flex-end',
+    marginBottom: '8px',
   }
 }
 
