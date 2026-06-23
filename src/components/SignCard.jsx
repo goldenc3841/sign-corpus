@@ -23,7 +23,6 @@ const cardStyle = {
 
 export default function SignCard({ sign, onClick }) {
   const thumbnail = getYouTubeThumbnail(sign.video_url)
-  const langColor = getLanguageColor(sign.language)
 
   return (
     <div
@@ -91,38 +90,25 @@ export default function SignCard({ sign, onClick }) {
 
       {/* Card body */}
       <div style={{ padding: '14px 16px 16px', flex: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-          <h3 style={{
+        <h3 style={{
+          fontFamily: 'var(--serif)',
+          fontSize: '20px',
+          fontWeight: 400,
+          color: 'var(--ink)',
+          lineHeight: 1.2,
+        }}>
+          {sign.gloss || '—'}
+        </h3>
+        {sign.language && (
+          <span style={{
+            fontSize: '11px',
             fontFamily: 'var(--serif)',
-            fontSize: '20px',
-            fontWeight: 400,
             color: 'var(--ink)',
-            lineHeight: 1.2,
-            flex: 1,
+            letterSpacing: '0.04em',
           }}>
-            {sign.gloss || '—'}
-          </h3>
-          {sign.language && (
-            <span style={{
-              fontSize: '11px',
-              fontFamily: 'var(--mono)',
-              padding: '3px 8px',
-              borderRadius: '2px',
-              background: langColor.bg,
-              color: langColor.text,
-              border: `1px solid ${langColor.border}`,
-              whiteSpace: 'normal',
-              flexShrink: 0,
-              letterSpacing: '0.04em',
-            }}>
-              {sign.language}
-            </span>
-          )}
-        </div>
-
-        <div style={{ fontSize: '12px', color: 'var(--ink-faint)', fontFamily: 'var(--mono)', display: 'flex', flexDirection: 'column', gap: '3px' }}>
-          {sign.university && <span>{sign.university}</span>}
-        </div>
+            {sign.language}
+          </span>
+        )}
       </div>
     </div>
   )
