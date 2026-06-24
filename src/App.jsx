@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react'
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
+import React, { useState, useMemo, useEffect } from 'react'
+import { BrowserRouter, Routes, Route, NavLink, useSearchParams } from 'react-router-dom'
 import { useSignData } from './useSignData'
 import SearchBar from './components/SearchBar'
 import FilterPanel from './components/FilterPanel'
@@ -7,12 +7,19 @@ import SignCard from './components/SignCard'
 import VideoModal from './components/VideoModal'
 import Conversations from './Conversations'
 import About from './About'
+import Home from './Home'
 
 function SignsPage() {
   const { allSigns, loading, error } = useSignData()
-  const [query, setQuery] = useState('')
+  const [searchParams] = useSearchParams()
+  const [query, setQuery] = useState(searchParams.get('q') || '')
   const [filters, setFilters] = useState({ language: '', university: '' })
   const [selectedSign, setSelectedSign] = useState(null)
+
+  useEffect(() => {
+    const q = searchParams.get('q')
+    if (q) setQuery(q)
+  }, [searchParams])
 
   const languages = useMemo(() =>
     [...new Set(allSigns.map(s => s.language).filter(Boolean))].sort(),
@@ -166,7 +173,8 @@ function Header() {
             </div>
           </div>
           <nav style={{ display: 'flex', gap: '8px' }}>
-            <NavLink to="/" end style={navLinkStyle}>Signs</NavLink>
+            <NavLink to="/" end style={navLinkStyle}>Home</NavLink>
+            <NavLink to="/signs" style={navLinkStyle}>Signs</NavLink>
             <NavLink to="/conversations" style={navLinkStyle}>Conversations</NavLink>
             <NavLink to="/about" style={navLinkStyle}>About</NavLink>
           </nav>
@@ -181,7 +189,8 @@ export default function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<SignsPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/signs" element={<SignsPage />} />
         <Route path="/conversations" element={<Conversations />} />
         <Route path="/about" element={<About />} />
       </Routes>
