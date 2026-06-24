@@ -128,59 +128,83 @@ function Header() {
     color: isActive ? '#ffffff' : 'var(--ink-soft)',
     border: `1.5px solid ${isActive ? 'var(--accent)' : 'var(--border)'}`,
     transition: 'all 0.15s',
+    whiteSpace: 'nowrap',
   })
 
   return (
-    <header style={{
-      borderBottom: '1.5px solid var(--border)',
-      background: '#f0f7fa',
-      position: 'sticky',
-      top: 0,
-      zIndex: 100,
-    }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 28px' }}>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '4px 0',
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-            <img
-              src="/vislex-logo.png"
-              alt="VISLEX logo"
-              style={{ height: '80px', width: 'auto' }}
-            />
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <h1 style={{
-                fontFamily: 'var(--serif)',
-                fontSize: '44px',
-                fontWeight: 400,
-                color: 'var(--ink)',
-                lineHeight: 1,
-                margin: 0,
-              }}>
-                VISLEX
-              </h1>
-              <span style={{
-                fontSize: '13px',
-                fontWeight: 400,
-                color: 'var(--ink)',
-                letterSpacing: '0.04em',
-              }}>
-                Virtual Sign Language Exchange Corpus
-              </span>
+    <>
+      <style>{`
+        .header-inner {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 4px 0;
+        }
+        .header-nav {
+          display: flex;
+          gap: 8px;
+          flex-wrap: nowrap;
+        }
+        @media (max-width: 600px) {
+          .header-inner {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 8px 0;
+            gap: 10px;
+          }
+          .header-nav {
+            flex-wrap: wrap;
+            gap: 6px;
+            width: 100%;
+          }
+        }
+      `}</style>
+      <header style={{
+        borderBottom: '1.5px solid var(--border)',
+        background: '#f0f7fa',
+        position: 'sticky',
+        top: 0,
+        zIndex: 100,
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 28px' }}>
+          <div className="header-inner">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <img
+                src="/vislex-logo.png"
+                alt="VISLEX logo"
+                style={{ height: '80px', width: 'auto' }}
+              />
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <h1 style={{
+                  fontFamily: 'var(--serif)',
+                  fontSize: '44px',
+                  fontWeight: 400,
+                  color: 'var(--ink)',
+                  lineHeight: 1,
+                  margin: 0,
+                }}>
+                  VISLEX
+                </h1>
+                <span style={{
+                  fontSize: '13px',
+                  fontWeight: 400,
+                  color: 'var(--ink)',
+                  letterSpacing: '0.04em',
+                }}>
+                  Virtual Sign Language Exchange Corpus
+                </span>
+              </div>
             </div>
+            <nav className="header-nav">
+              <NavLink to="/" end style={navLinkStyle}>Home</NavLink>
+              <NavLink to="/signs" style={navLinkStyle}>Signs</NavLink>
+              <NavLink to="/conversations" style={navLinkStyle}>Conversations</NavLink>
+              <NavLink to="/about" style={navLinkStyle}>About</NavLink>
+            </nav>
           </div>
-          <nav style={{ display: 'flex', gap: '8px' }}>
-            <NavLink to="/" end style={navLinkStyle}>Home</NavLink>
-            <NavLink to="/signs" style={navLinkStyle}>Signs</NavLink>
-            <NavLink to="/conversations" style={navLinkStyle}>Conversations</NavLink>
-            <NavLink to="/about" style={navLinkStyle}>About</NavLink>
-          </nav>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   )
 }
 
