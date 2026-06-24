@@ -64,8 +64,21 @@ export default function Home() {
         marginBottom: '36px',
       }}>
         Welcome to VISLEX! We are a global group of professors and sign language linguists
-        with a passion for teaching sign language students about sign language from a global scale.
+        with a passion for teaching sign language students about sign language and Deaf culture from a global perspective. 
       </p>
+
+       <p style={{
+        fontFamily: 'var(--serif)',
+        fontSize: '16px',
+        color: 'var(--ink-soft)',
+        textAlign: 'center',
+        maxWidth: '580px',
+        lineHeight: 1.7,
+        marginBottom: '36px',
+        marginTop: '12px',
+      }}>
+        <strong>Interested in learning more? Reach out to us at goldenc5310(at)gmail.com</strong>
+        </p>
 
       {/* Search bar */}
       <form onSubmit={handleSearch} style={{ width: '100%', maxWidth: '520px' }}>
