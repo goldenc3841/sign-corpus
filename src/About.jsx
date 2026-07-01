@@ -23,7 +23,7 @@ const TEAM = [
   {
     name: 'Dr. Tano Jean-Jacques Angoua',
     role: `Côte d'Ivoire Sign Language Specialist`,
-    bio: 'Bio coming soon!',
+    bio: `Dr. Tano Jean-Jacques Angoua is an Assistant Professor in the Department of Language Sciences at Félix Houphouët-Boigny University in Abidjan, Côte d'Ivoire, and one of the few African scholars whose work is entirely dedicated to the documentation and promotion of sign languages in West Africa. He earned his PhD in Sign Language Linguistics from Leiden University in 2016, with a dissertation on Bouakako Sign Language (LaSiBo), representing one of the first comprehensive descriptions of a village sign language in Francophone Africa. His research spans language documentation, Deaf education, sign language interpreting, linguistic justice, and the representation of African sign languages in AI and digital technologies. He has been a visiting researcher at Leiden University and a Fulbright Visiting Scholar at the University of New Mexico (2024), and has collaborated with universities and research centers across Europe, North America, and Africa. He is particularly known for his work on Côte d'Ivoire Sign Language (LSCI) and Bouakako Sign Language (LaSiBo), for which he has developed extensive video corpora contributing to their scientific recognition.`,
     photo: '',
     links: [
       { label: 'LinkedIn', url: 'https://linkedin.com/in/theirhandle' },
