@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useLanguage } from './LanguageContext'
 
 export default function Home() {
   const [query, setQuery] = useState('')
   const navigate = useNavigate()
+  const { t } = useLanguage()
 
   function handleSearch(e) {
     e.preventDefault()
@@ -23,7 +25,6 @@ export default function Home() {
       alignItems: 'center',
       padding: '60px 28px 60px',
     }}>
-      {/* Logo + Name */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>
         <img
           src="/vislex-logo.png"
@@ -48,12 +49,11 @@ export default function Home() {
             marginTop: '6px',
             letterSpacing: '0.04em',
           }}>
-            Virtual Sign Language Exchange Corpus
+            {t.home.subtitle}
           </p>
         </div>
       </div>
 
-      {/* Welcome text */}
       <p style={{
         fontFamily: 'var(--serif)',
         fontSize: '16px',
@@ -63,11 +63,10 @@ export default function Home() {
         lineHeight: 1.7,
         marginBottom: '36px',
       }}>
-        Welcome to VISLEX! We are a global group of professors and sign language linguists
-        with a passion for teaching sign language students about sign language and Deaf culture from a global perspective. 
+        {t.home.welcome}
       </p>
 
-       <p style={{
+      <p style={{
         fontFamily: 'var(--serif)',
         fontSize: '16px',
         color: 'var(--ink-soft)',
@@ -77,10 +76,9 @@ export default function Home() {
         marginBottom: '36px',
         marginTop: '12px',
       }}>
-        <strong>Interested in learning more? Reach out to us at goldenc5310(at)gmail.com</strong>
-        </p>
+        <strong>{t.home.contact}</strong>
+      </p>
 
-      {/* Search bar */}
       <form onSubmit={handleSearch} style={{ width: '100%', maxWidth: '520px' }}>
         <div style={{ position: 'relative' }}>
           <span style={{
@@ -91,7 +89,7 @@ export default function Home() {
             type="text"
             value={query}
             onChange={e => setQuery(e.target.value)}
-            placeholder="Search for a sign..."
+            placeholder={t.home.searchPlaceholder}
             style={{
               width: '100%',
               padding: '14px 48px 14px 40px',
@@ -123,7 +121,7 @@ export default function Home() {
               cursor: 'pointer',
             }}
           >
-            Search
+            {t.home.searchButton}
           </button>
         </div>
       </form>

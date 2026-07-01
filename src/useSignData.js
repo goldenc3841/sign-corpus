@@ -20,6 +20,7 @@ async function fetchAllRecords() {
       return {
         id: r.id,
         gloss: f.gloss || null,
+        gloss_fr: f.gloss_fr || null,
         language: f.language_text || null,
         university: f.university_text || null,
         signer_id: Array.isArray(f.signer_id) ? f.signer_id[0] : (f.signer_id || null),

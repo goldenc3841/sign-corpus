@@ -8,6 +8,7 @@ import VideoModal from './components/VideoModal'
 import Conversations from './Conversations'
 import About from './About'
 import Home from './Home'
+import { LanguageProvider, useLanguage } from './LanguageContext'
 
 function SignsPage() {
   const { allSigns, loading, error } = useSignData()
@@ -15,6 +16,7 @@ function SignsPage() {
   const [query, setQuery] = useState(searchParams.get('q') || '')
   const [filters, setFilters] = useState({ language: '', university: '' })
   const [selectedSign, setSelectedSign] = useState(null)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const q = searchParams.get('q')
@@ -45,7 +47,7 @@ function SignsPage() {
       <div style={{ background: '#f0f7fa', borderBottom: '1.5px solid var(--border)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 28px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', padding: '14px 0' }}>
-            <SearchBar value={query} onChange={setQuery} />
+            <SearchBar value={query} onChange={setQuery} placeholder={t.signs.searchPlaceholder} />
             <FilterPanel
               filters={filters}
               onChange={setFilters}
@@ -66,7 +68,7 @@ function SignsPage() {
             color: '#991b1b', fontFamily: 'var(--mono)', fontSize: '13px',
             marginBottom: '24px',
           }}>
-            <strong>Could not load signs.</strong> Check that your .env file has the correct Airtable token and base ID.<br />
+            <strong>{t.signs.errorTitle}</strong> {t.signs.errorHint}<br />
             <span style={{ opacity: 0.7 }}>Error: {error}</span>
           </div>
         )}
@@ -90,12 +92,12 @@ function SignsPage() {
         {!loading && !error && filteredSigns.length === 0 && (
           <div style={{ textAlign: 'center', padding: '80px 20px', color: 'var(--ink-faint)' }}>
             <div style={{ fontSize: '40px', marginBottom: '12px' }}>∅</div>
-            <p style={{ fontFamily: 'var(--mono)', fontSize: '13px' }}>No signs match your search.</p>
+            <p style={{ fontFamily: 'var(--mono)', fontSize: '13px' }}>{t.signs.noResults}</p>
             <button
               onClick={() => { setQuery(''); setFilters({ language: '', university: '' }) }}
               style={{ marginTop: '16px', fontFamily: 'var(--mono)', fontSize: '12px', color: 'var(--accent)', textDecoration: 'underline' }}
             >
-              Clear all filters
+              {t.signs.clearFilters}
             </button>
           </div>
         )}
@@ -117,6 +119,8 @@ function SignsPage() {
 }
 
 function Header() {
+  const { lang, setLang, t } = useLanguage()
+
   const navLinkStyle = ({ isActive }) => ({
     padding: '6px 16px',
     borderRadius: '999px',
@@ -129,6 +133,19 @@ function Header() {
     border: `1.5px solid ${isActive ? 'var(--accent)' : 'var(--border)'}`,
     transition: 'all 0.15s',
     whiteSpace: 'nowrap',
+  })
+
+  const pillStyle = (active) => ({
+    padding: '4px 12px',
+    borderRadius: '999px',
+    fontSize: '12px',
+    fontFamily: 'var(--sans)',
+    fontWeight: 500,
+    cursor: 'pointer',
+    border: '1.5px solid var(--border)',
+    background: active ? 'var(--ink)' : 'transparent',
+    color: active ? '#ffffff' : 'var(--ink-soft)',
+    transition: 'all 0.15s',
   })
 
   return (
@@ -144,6 +161,7 @@ function Header() {
           display: flex;
           gap: 8px;
           flex-wrap: nowrap;
+          align-items: center;
         }
         @media (max-width: 600px) {
           .header-inner {
@@ -191,15 +209,19 @@ function Header() {
                   color: 'var(--ink)',
                   letterSpacing: '0.04em',
                 }}>
-                  Virtual Sign Language Exchange Corpus
+                  {t.home.subtitle}
                 </span>
               </div>
             </div>
             <nav className="header-nav">
-              <NavLink to="/" end style={navLinkStyle}>Home</NavLink>
-              <NavLink to="/signs" style={navLinkStyle}>Signs</NavLink>
-              <NavLink to="/conversations" style={navLinkStyle}>Conversations</NavLink>
-              <NavLink to="/about" style={navLinkStyle}>About</NavLink>
+              <NavLink to="/" end style={navLinkStyle}>{t.nav.home}</NavLink>
+              <NavLink to="/signs" style={navLinkStyle}>{t.nav.signs}</NavLink>
+              <NavLink to="/conversations" style={navLinkStyle}>{t.nav.conversations}</NavLink>
+              <NavLink to="/about" style={navLinkStyle}>{t.nav.about}</NavLink>
+              <div style={{ display: 'flex', gap: '4px', marginLeft: '8px' }}>
+                <button style={pillStyle(lang === 'en')} onClick={() => setLang('en')}>EN</button>
+                <button style={pillStyle(lang === 'fr')} onClick={() => setLang('fr')}>FR</button>
+              </div>
             </nav>
           </div>
         </div>
@@ -210,14 +232,16 @@ function Header() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signs" element={<SignsPage />} />
-        <Route path="/conversations" element={<Conversations />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signs" element={<SignsPage />} />
+          <Route path="/conversations" element={<Conversations />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
+    </LanguageProvider>
   )
 }

@@ -1,56 +1,48 @@
 import React from 'react'
+import { useLanguage } from './LanguageContext'
 
 const TEAM = [
   {
     name: 'Caitlin Golden',
-    role: 'Co-Founder & Program Director',
-    bio: `Caitlin Golden received her MA from the University of Hamburg with a focus on comparative sign language constructed action storytelling in ASL and DGS (German Sign Language). She further received a Fulbright Specialist Grant to expand her CA storytelling research to include LSF (French Sign Language), which she studied at the University of Poitiers. Caitlin is passionate about understanding sign language and Deaf culture from a global scale.`,
+    role: {
+      en: 'Co-Founder & Program Director',
+      fr: 'Co-fondatrice & Directrice du programme',
+    },
+    bio: {
+      en: `Caitlin Golden received her MA from the University of Hamburg with a focus on comparative sign language constructed action storytelling in ASL and DGS (German Sign Language). She further received a Fulbright Specialist Grant to expand her CA storytelling research to include LSF (French Sign Language), which she studied at the University of Poitiers. Caitlin is passionate about understanding sign language and Deaf culture from a global scale.`,
+      fr: `Caitlin Golden a obtenu son master à l'Université de Hambourg, avec une spécialisation en narration d'action construite comparative en LSQ et en DGS (langue des signes allemande). Elle a également reçu une bourse Fulbright pour étendre ses recherches à la LSF (langue des signes française), qu'elle a étudiée à l'Université de Poitiers. Caitlin est passionnée par la compréhension de la langue des signes et de la culture sourde à l'échelle mondiale.`,
+    },
     photo: '/Caitlin_Golden.JPG',
     links: [
-      { label: 'LinkedIn', url: 'https://www.linkedin.com/in/caitlin-golden-seattle/' },
-      { label: 'Email', url: 'goldenc5310@gmail.com' },
+      { label: 'LinkedIn', url: 'https://linkedin.com/in/yourhandle' },
+      { label: 'Email', url: 'mailto:you@example.com' },
     ],
   },
   {
     name: 'Kristi Winter',
-    role: 'Co-Founder & Program Director, American Sign Language Specialist',
-    bio: `Kristi Winter is a full-time faculty member in the UW Linguistics Department and holds a BA in ASL Studies and an MA in Linguistics from Gallaudet University, along with ASLTA's highest-level Professional Certificate. With over 20 years of ASL teaching experience across universities and colleges, her research focuses on the sociolinguistics of Deaf communities, ASL morphology, and second language acquisition. She currently serves as President of the Washington State chapter of ASLTA.`,
+    role: {
+      en: 'ASL Faculty, University of Washington',
+      fr: 'Chargée de cours en ASL, Université de Washington',
+    },
+    bio: {
+      en: `Kristi Winter is a full-time faculty member in the UW Linguistics Department and holds a BA in ASL Studies and an MA in Linguistics from Gallaudet University, along with ASLTA's highest-level Professional Certificate. With over 20 years of ASL teaching experience across universities and colleges, her research focuses on the sociolinguistics of Deaf communities, ASL morphology, and second language acquisition. She currently serves as President of the Washington State chapter of ASLTA.`,
+      fr: `Kristi Winter est membre à temps plein du département de linguistique de l'UW et détient une licence en études ASL ainsi qu'un master en linguistique de l'Université Gallaudet, ainsi que le certificat professionnel le plus élevé de l'ASLTA. Forte de plus de 20 ans d'expérience dans l'enseignement de l'ASL, ses recherches portent sur la sociolinguistique des communautés sourdes, la morphologie de l'ASL et l'acquisition des langues secondes. Elle est actuellement présidente de la section de l'État de Washington de l'ASLTA.`,
+    },
     photo: '/Kristi_Winter.jpg',
     links: [
-      { label: 'Email', url: 'kwinter2@uw.edu' },
+      { label: 'LinkedIn', url: 'https://linkedin.com/in/yourhandle' },
     ],
   },
   {
     name: 'Dr. Tano Jean-Jacques Angoua',
-    role: `Côte d'Ivoire Sign Language Specialist`,
-    bio: `Dr. Tano Jean-Jacques Angoua is an Assistant Professor in the Department of Language Sciences at Félix Houphouët-Boigny University in Abidjan, Côte d'Ivoire, and one of the few African scholars whose work is entirely dedicated to the documentation and promotion of sign languages in West Africa. He earned his PhD in Sign Language Linguistics from Leiden University in 2016, with a dissertation on Bouakako Sign Language (LaSiBo), representing one of the first comprehensive descriptions of a village sign language in Francophone Africa. His research spans language documentation, Deaf education, sign language interpreting, linguistic justice, and the representation of African sign languages in AI and digital technologies. He has been a visiting researcher at Leiden University and a Fulbright Visiting Scholar at the University of New Mexico (2024), and has collaborated with universities and research centers across Europe, North America, and Africa. He is particularly known for his work on Côte d'Ivoire Sign Language (LSCI) and Bouakako Sign Language (LaSiBo), for which he has developed extensive video corpora contributing to their scientific recognition.`,
-    photo: '',
-    links: [
-      { label: 'LinkedIn', url: 'https://linkedin.com/in/theirhandle' },
-    ],
-  },
-    {
-    name: 'Dr. Junhui Yang',
-    role: `British Sign Language Specialist`,
-    bio: 'Bio coming soon!',
-    photo: '',
-    links: [
-      { label: 'LinkedIn', url: 'https://linkedin.com/in/theirhandle' },
-    ],
-  },
-    {
-    name: 'Alexander Eisenzimmer',
-    role: `German Sign Language Specialist`,
-    bio: 'Bio coming soon!',
-    photo: '',
-    links: [
-      { label: 'LinkedIn', url: 'https://linkedin.com/in/theirhandle' },
-    ],
-  },
-  {
-    name: 'Louise No Myrup',
-    role: `Danish Sign Language Specialist`,
-    bio: 'Bio coming soon!',
+    role: {
+      en: `Côte d'Ivoire Sign Language Specialist`,
+      fr: `Spécialiste en langue des signes de Côte d'Ivoire`,
+    },
+    bio: {
+      en: `Dr. Tano Jean-Jacques Angoua is an Assistant Professor in the Department of Language Sciences at Félix Houphouët-Boigny University in Abidjan, Côte d'Ivoire, and one of the few African scholars whose work is entirely dedicated to the documentation and promotion of sign languages in West Africa. He earned his PhD in Sign Language Linguistics from Leiden University in 2016, with a dissertation on Bouakako Sign Language (LaSiBo), representing one of the first comprehensive descriptions of a village sign language in Francophone Africa. His research spans language documentation, Deaf education, sign language interpreting, linguistic justice, and the representation of African sign languages in AI and digital technologies. He has been a visiting researcher at Leiden University and a Fulbright Visiting Scholar at the University of New Mexico (2024), and has collaborated with universities and research centers across Europe, North America, and Africa. He is particularly known for his work on Côte d'Ivoire Sign Language (LSCI) and Bouakako Sign Language (LaSiBo), for which he has developed extensive video corpora contributing to their scientific recognition.`,
+      fr: `Le Dr Tano Jean-Jacques Angoua est maître de conférences au Département des sciences du langage de l'Université Félix Houphouët-Boigny d'Abidjan, en Côte d'Ivoire, et l'un des rares chercheurs africains dont les travaux sont entièrement consacrés à la documentation et à la promotion des langues des signes en Afrique de l'Ouest. Il a obtenu son doctorat en linguistique des langues des signes à l'Université de Leyde en 2016, avec une thèse sur la langue des signes Bouakako (LaSiBo), l'une des premières descriptions complètes d'une langue des signes villageoise en Afrique francophone. Ses recherches portent sur la documentation linguistique, l'éducation des sourds, l'interprétation en langue des signes, la justice linguistique et la représentation des langues des signes africaines dans l'IA et les technologies numériques. Il a été chercheur invité à l'Université de Leyde et boursier Fulbright à l'Université du Nouveau-Mexique (2024). Il est particulièrement connu pour ses travaux sur la langue des signes de Côte d'Ivoire (LSCI) et la langue des signes Bouakako (LaSiBo).`,
+    },
     photo: '',
     links: [
       { label: 'LinkedIn', url: 'https://linkedin.com/in/theirhandle' },
@@ -100,6 +92,8 @@ function Avatar({ name, photo }) {
 }
 
 export default function About() {
+  const { lang, t } = useLanguage()
+
   return (
     <main style={{
       minHeight: 'calc(100vh - 100px)',
@@ -118,7 +112,7 @@ export default function About() {
           marginBottom: '24px',
           textAlign: 'center',
         }}>
-          About Us
+          {t.about.title}
         </h2>
 
         <div style={{
@@ -133,15 +127,7 @@ export default function About() {
           marginBottom: '40px',
           textAlign: 'center',
         }}>
-<p style={{ margin: '0 0 16px' }}>
-  Welcome to VISLEX! We are a group of global sign language academics with a focus on globally-accessible sign language learning. 
-</p>
-<p style={{ margin: '0 0 16px' }}>
-  Five years ago, Kristi Winter and Caitlin Golden had the idea to create a virtual sign language exchange program - a barrier-free, inexpensive opportunity for sign language students around the globe to connect to each other without leaving their homes.
-</p>
-<p style={{ margin: 0 }}>
-  Now, to expand beyond the limitations of our exchange sessions, we have created VISLEX: a searchable corpus of sign language video data, built to support sign language education, global connectivity for the Deaf community, and linguistic research. 
-</p>
+          <p style={{ margin: 0 }}>{t.about.description}</p>
         </div>
 
         <h3 style={{
@@ -152,7 +138,7 @@ export default function About() {
           marginBottom: '20px',
           textAlign: 'center',
         }}>
-          Team
+          {t.about.team}
         </h3>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -170,7 +156,6 @@ export default function About() {
               }}
             >
               <Avatar name={person.name} photo={person.photo} />
-
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{
                   fontFamily: 'var(--serif)',
@@ -189,7 +174,7 @@ export default function About() {
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em',
                 }}>
-                  {person.role}
+                  {person.role[lang]}
                 </div>
                 <p style={{
                   fontFamily: 'var(--serif)',
@@ -198,7 +183,7 @@ export default function About() {
                   color: 'var(--ink-soft)',
                   margin: '0 0 14px',
                 }}>
-                  {person.bio}
+                  {person.bio[lang]}
                 </p>
                 {person.links.length > 0 && (
                   <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>

@@ -1,10 +1,9 @@
 import React from 'react'
 import { getLanguageColor } from './languageColors'
+import { useLanguage } from '../LanguageContext'
 
-// Converts a YouTube URL or video ID into a thumbnail image URL.
 function getYouTubeThumbnail(url) {
   if (!url) return null
-  // Handle youtu.be/ID and youtube.com/watch?v=ID and youtube.com/embed/ID
   const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/)
   if (!match) return null
   return `https://img.youtube.com/vi/${match[1]}/mqdefault.jpg`
@@ -22,7 +21,9 @@ const cardStyle = {
 }
 
 export default function SignCard({ sign, onClick }) {
+  const { lang } = useLanguage()
   const thumbnail = getYouTubeThumbnail(sign.video_url)
+  const displayGloss = (lang === 'fr' && sign.gloss_fr) ? sign.gloss_fr : sign.gloss
 
   return (
     <div
@@ -41,9 +42,8 @@ export default function SignCard({ sign, onClick }) {
       role="button"
       tabIndex={0}
       onKeyDown={e => e.key === 'Enter' && onClick()}
-      aria-label={`View sign: ${sign.gloss}`}
+      aria-label={`View sign: ${displayGloss}`}
     >
-      {/* Thumbnail */}
       <div style={{
         width: '100%',
         aspectRatio: '16/9',
@@ -54,7 +54,7 @@ export default function SignCard({ sign, onClick }) {
         {thumbnail ? (
           <img
             src={thumbnail}
-            alt={`Thumbnail for ${sign.gloss}`}
+            alt={`Thumbnail for ${displayGloss}`}
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             loading="lazy"
           />
@@ -67,7 +67,6 @@ export default function SignCard({ sign, onClick }) {
             ▶
           </div>
         )}
-        {/* Play overlay */}
         <div style={{
           position: 'absolute', inset: 0,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -88,7 +87,6 @@ export default function SignCard({ sign, onClick }) {
         </div>
       </div>
 
-      {/* Card body */}
       <div style={{ padding: '14px 16px 16px', flex: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <h3 style={{
           fontFamily: 'var(--serif)',
@@ -97,7 +95,7 @@ export default function SignCard({ sign, onClick }) {
           color: 'var(--ink)',
           lineHeight: 1.2,
         }}>
-          {sign.gloss || '—'}
+          {displayGloss || '—'}
         </h3>
         {sign.language && (
           <span style={{
