@@ -21,8 +21,8 @@ const TEAM = [
   {
     name: 'Kristi Winter',
     role: {
-      en: 'ASL Faculty, University of Washington',
-      fr: 'Chargée de cours en ASL, Université de Washington',
+      en: 'Cofounder and Program Director, American Sign Language Expert',
+      fr: 'Co-fondatrice & Directrice du programme et experte en langue des signes americaine',
     },
     bio: {
       en: `Kristi Winter is a full-time faculty member in the UW Linguistics Department and holds a BA in ASL Studies and an MA in Linguistics from Gallaudet University, along with ASLTA's highest-level Professional Certificate. With over 20 years of ASL teaching experience across universities and colleges, her research focuses on the sociolinguistics of Deaf communities, ASL morphology, and second language acquisition. She currently serves as President of the Washington State chapter of ASLTA.`,
@@ -36,8 +36,8 @@ const TEAM = [
   {
     name: 'Dr. Tano Jean-Jacques Angoua',
     role: {
-      en: `Côte d'Ivoire Sign Language Specialist`,
-      fr: `Spécialiste en langue des signes de Côte d'Ivoire`,
+      en: `Côte d'Ivoire Sign Language Expert`,
+      fr: `Experte en langue des signes de Côte d'Ivoire`,
     },
     bio: {
       en: `Dr. Tano Jean-Jacques Angoua is an Assistant Professor in the Department of Language Sciences at Félix Houphouët-Boigny University in Abidjan, Côte d'Ivoire, and one of the few African scholars whose work is entirely dedicated to the documentation and promotion of sign languages in West Africa. He earned his PhD in Sign Language Linguistics from Leiden University in 2016, with a dissertation on Bouakako Sign Language (LaSiBo), representing one of the first comprehensive descriptions of a village sign language in Francophone Africa. His research spans language documentation, Deaf education, sign language interpreting, linguistic justice, and the representation of African sign languages in AI and digital technologies. He has been a visiting researcher at Leiden University and a Fulbright Visiting Scholar at the University of New Mexico (2024), and has collaborated with universities and research centers across Europe, North America, and Africa. He is particularly known for his work on Côte d'Ivoire Sign Language (LSCI) and Bouakako Sign Language (LaSiBo), for which he has developed extensive video corpora contributing to their scientific recognition.`,
@@ -46,6 +46,22 @@ const TEAM = [
     photo: '',
     links: [
       { label: 'LinkedIn', url: 'https://linkedin.com/in/theirhandle' },
+    ],
+  },
+   {
+    name: 'Dr. Junhui Yang',
+    role: {
+      en: `British Sign Language Expert`,
+      fr: `Experte en langue des signes britannique`,
+    },
+    bio: {
+      en: `Dr. Yang is a Senior Lecturer at the University of Lanchashire, where she teaches Sign Linguistics, Deaf People in Society, Sign and Society, and British Sign Language courses in BSL & Deaf Studies Team. She supervises postgraduate project on sign languages and international Deaf cultural studies. Her international collaborations are constantly developing and she has gained a notable reputation both in the UK and abroad through the many papers and posters that she has presented at academic conferences. This has included securing funding for many Erasmus+ projects and student exchange trips.`,
+      fr: `Dr. Yang est maître de conférences à l'Université du Lancashire, où elle enseigne la linguistique des langues des signes, les sourds dans la société, les signes et la société, ainsi que des cours de langue des signes britannique (BSL) au sein de l'équipe BSL & Deaf Studies. Elle encadre des projets de recherche de troisième cycle sur les langues des signes et les études culturelles sourdes à l'échelle internationale. Ses collaborations internationales sont en constante évolution et elle a acquis une réputation notable au Royaume-Uni et à l'étranger grâce aux nombreuses communications et affiches qu'elle a présentées lors de conférences académiques. Cela comprend l'obtention de financements pour de nombreux projets Erasmus+ et voyages d'échange étudiants.`,
+    },
+      photo: '/Junhui_Yang.jpg',
+    links: [
+      { label: 'LinkedIn', url: 'https://linkedin.com/in/yourhandle' },
+      { label: 'Email', url: 'mailto:you@example.com' },
     ],
   },
 ]
