@@ -7,6 +7,7 @@ import SignCard from './components/SignCard'
 import VideoModal from './components/VideoModal'
 import Conversations from './Conversations'
 import About from './About'
+import Presentations from './Presentations'
 import Home from './Home'
 import { LanguageProvider, useLanguage } from './LanguageContext'
 
@@ -218,6 +219,7 @@ function Header() {
               <NavLink to="/signs" style={navLinkStyle}>{t.nav.signs}</NavLink>
               <NavLink to="/conversations" style={navLinkStyle}>{t.nav.conversations}</NavLink>
               <NavLink to="/about" style={navLinkStyle}>{t.nav.about}</NavLink>
+              <NavLink to="/presentations" style={navLinkStyle}>{lang === 'fr' ? 'Présentations & Liens' : 'Presentations & Links'}</NavLink>
               <div style={{ display: 'flex', gap: '4px', marginLeft: '8px' }}>
                 <button style={pillStyle(lang === 'en')} onClick={() => setLang('en')}>EN</button>
                 <button style={pillStyle(lang === 'fr')} onClick={() => setLang('fr')}>FR</button>
@@ -240,6 +242,7 @@ export default function App() {
           <Route path="/signs" element={<SignsPage />} />
           <Route path="/conversations" element={<Conversations />} />
           <Route path="/about" element={<About />} />
+          <Route path="/presentations" element={<Presentations />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>
