@@ -1,6 +1,27 @@
 import React from 'react'
 import { useLanguage } from './LanguageContext'
 
+const UPCOMING_EVENTS = [
+  {
+    title: {
+      en: 'Virtual Sign Language Exchange Fall 2026 Session',
+      fr: 'Session d\'échange virtuel en langue des signes — Automne 2026',
+    },
+    date: { en: 'TBD', fr: 'À déterminer' },
+    time: { en: 'TBD', fr: 'À déterminer' },
+    topics: {
+      en: 'TBD',
+      fr: 'À déterminer',
+    },
+    professors: 'TBD',
+    open_to: {
+      en: 'Open to any sign language student or instructor — from the brand-new to the highly skilled.',
+      fr: 'Ouvert à tout étudiant ou instructeur en langue des signes — du débutant au très expérimenté.',
+    },
+    contact: 'goldenc5310(at)gmail.com',
+  },
+]
+
 const PRESENTATIONS = [
   {
     conference: 'SIGN10 2024',
@@ -16,7 +37,7 @@ const PRESENTATIONS = [
 const LINKS = [
   {
     url: 'https://www.instagram.com/reel/DQd2pGTkftG/',
-     label: 'Instagram — IDGS Universität Hamburg',
+    label: 'Instagram — IDGS Universität Hamburg',
     description: {
       en: 'The Institut für Deutsche Gebärdensprache at the Universität Hamburg\'s Instagram post featuring our virtual exchange.',
       fr: 'Publication Instagram de l\'Institut für Deutsche Gebärdensprache de l\'Université de Hambourg présentant notre échange virtuel.',
@@ -25,7 +46,7 @@ const LINKS = [
 ]
 
 export default function Presentations() {
-  const { lang, t } = useLanguage()
+  const { lang } = useLanguage()
 
   return (
     <main style={{
@@ -38,18 +59,72 @@ export default function Presentations() {
     }}>
       <div style={{ width: '100%', maxWidth: '800px' }}>
 
-        {/* Presentations section */}
+        {/* Page title */}
         <h2 style={{
           fontFamily: 'var(--serif)',
           fontSize: '32px',
           fontWeight: 400,
           color: 'var(--ink)',
-          marginBottom: '24px',
+          marginBottom: '40px',
           textAlign: 'center',
         }}>
-          {lang === 'fr' ? 'Présentations & Liens' : 'Presentations & Links'}
-        </h2>
+{lang === 'fr' ? 'Événements, Présentations &amp; Liens' : 'Upcoming Events, Presentations & Links'}
+</h2>
+        {/* Upcoming Events section */}
+        <h3 style={{
+          fontFamily: 'var(--serif)',
+          fontSize: '22px',
+          fontWeight: 400,
+          color: 'var(--ink)',
+          marginBottom: '20px',
+          textAlign: 'center',
+        }}>
+          {lang === 'fr' ? 'Événements à venir' : 'Upcoming Events'}
+        </h3>
 
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '48px' }}>
+          {UPCOMING_EVENTS.map((event, i) => (
+            <div key={i} style={{
+              background: 'var(--paper-card)',
+              border: '1.5px solid var(--border)',
+              borderRadius: 'var(--radius)',
+              padding: '24px 28px',
+            }}>
+              <div style={{
+                fontFamily: 'var(--serif)',
+                fontSize: '18px',
+                fontWeight: 500,
+                color: 'var(--ink)',
+                marginBottom: '12px',
+              }}>
+                {event.title[lang]}
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: '14px', color: 'var(--ink-soft)' }}>
+                  <strong>{lang === 'fr' ? 'Date : ' : 'Date: '}</strong>{event.date[lang]}
+                </div>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: '14px', color: 'var(--ink-soft)' }}>
+                  <strong>{lang === 'fr' ? 'Heure : ' : 'Time: '}</strong>{event.time[lang]}
+                </div>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: '14px', color: 'var(--ink-soft)' }}>
+                  <strong>{lang === 'fr' ? 'Sujets : ' : 'Topics: '}</strong>{event.topics[lang]}
+                </div>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: '14px', color: 'var(--ink-soft)' }}>
+                  <strong>{lang === 'fr' ? 'Professeurs et universités : ' : 'Professors & Universities: '}</strong>{event.professors}
+                </div>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: '14px', color: 'var(--ink-soft)' }}>
+                  <strong>{lang === 'fr' ? 'Ouvert à : ' : 'Open to: '}</strong>{event.open_to[lang]}
+                </div>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: '14px', color: 'var(--ink-soft)' }}>
+                  <strong>{lang === 'fr' ? 'Pour plus d\'informations : ' : 'For more info: '}</strong>{event.contact}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Presentations section */}
         <h3 style={{
           fontFamily: 'var(--serif)',
           fontSize: '22px',
@@ -69,7 +144,7 @@ export default function Presentations() {
               borderRadius: 'var(--radius)',
               padding: '24px 28px',
             }}>
-             <div style={{
+              <div style={{
                 fontFamily: 'var(--serif)',
                 fontSize: '18px',
                 fontWeight: 500,
@@ -125,7 +200,7 @@ export default function Presentations() {
               borderRadius: 'var(--radius)',
               padding: '24px 28px',
             }}>
-      <a        
+              <a
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"

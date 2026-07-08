@@ -219,7 +219,7 @@ function Header() {
               <NavLink to="/signs" style={navLinkStyle}>{t.nav.signs}</NavLink>
               <NavLink to="/conversations" style={navLinkStyle}>{t.nav.conversations}</NavLink>
               <NavLink to="/about" style={navLinkStyle}>{t.nav.about}</NavLink>
-              <NavLink to="/presentations" style={navLinkStyle}>{lang === 'fr' ? 'Présentations & Liens' : 'Presentations & Links'}</NavLink>
+              <NavLink to="/presentations" style={navLinkStyle}>{lang === 'fr' ? 'Événements, Présentations &amp; Liens' : 'Upcoming Events, Presentations & Links'}</NavLink>
               <div style={{ display: 'flex', gap: '4px', marginLeft: '8px' }}>
                 <button style={pillStyle(lang === 'en')} onClick={() => setLang('en')}>EN</button>
                 <button style={pillStyle(lang === 'fr')} onClick={() => setLang('fr')}>FR</button>
