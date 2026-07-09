@@ -77,7 +77,7 @@ export default function Presentations() {
           marginBottom: '40px',
           textAlign: 'center',
         }}>
-{lang === 'fr' ? 'Événements, Présentations &amp; Liens' : 'Upcoming Events, Presentations & Links'}
+{lang === 'fr' ? 'Événements, Présentations & Liens' : 'Upcoming Events, Presentations & Links'}
 </h2>
         {/* Upcoming Events section */}
         <h3 style={{

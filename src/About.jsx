@@ -64,6 +64,32 @@ const TEAM = [
       { label: 'Email', url: 'mailto:you@example.com' },
     ],
   },
+  {
+    name: 'Alexander Eisenzimmer',
+    role: {
+      en: `German Sign Language Expert`,
+      fr: `Experte en langue des signes allemande`,
+    },
+    bio: {
+      en: `Bio coming soon.`,
+      fr: `Biographie à venir.`,
+    },
+    photo: '',
+    links: [],
+  },
+   {
+    name: 'Louise No Myrup',
+    role: {
+      en: `Danish Sign Language Expert`,
+      fr: `Experte en langue des signes danoise`,
+    },
+    bio: {
+      en: `Bio coming soon.`,
+      fr: `Biographie à venir.`,
+    },
+    photo: '',
+    links: [],
+  },
 ]
 
 function Avatar({ name, photo }) {
