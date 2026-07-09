@@ -4,7 +4,7 @@ import { useLanguage } from './LanguageContext'
 const UPCOMING_EVENTS = [
   {
     title: {
-      en: 'Virtual Sign Language Exchange Fall 2026 Session',
+      en: 'Virtual Sign Language Exchange Session: Fall 2026',
       fr: 'Session d\'échange virtuel en langue des signes — Automne 2026',
     },
     date: { en: 'TBD', fr: 'À déterminer' },
@@ -30,7 +30,16 @@ const PRESENTATIONS = [
     title: {
       en: 'Poster Presentation: Exploring Cross-Cultural and Cross-Linguistic Exchange For Sign Language Students.',
       fr: 'Présentation par affiche : Exploration d\'un échange interculturel et interlinguistique pour les étudiants en langue des signes.',
+  },
+  },
+  {
+    conference: 'University of Washington Linguistics Colloquium Series',
+    dates: { en: 'December 6, 2024', fr: '6 décembre 2024' },
+    title: {
+      en: 'Exploring Virtual Cross-Cultural and Cross-Linguistic Exchange for Sign Language Students',
+      fr: 'Exploration d\'un échange virtuel interculturel et interlinguistique pour les étudiants en langue des signes',
     },
+     link: '/poster',
   },
 ]
 
@@ -155,6 +164,10 @@ export default function Presentations() {
                   <a href={p.url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--ink)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
                     {p.conference}
                   </a>
+                ) : p.link ? (
+                  <a href={p.link} style={{ color: 'var(--ink)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                    {p.conference}
+                  </a>
                 ) : p.conference}
               </div>
               <div style={{
@@ -167,7 +180,7 @@ export default function Presentations() {
               }}>
                 {p.dates[lang]}
               </div>
-              <p style={{
+ <p style={{
                 fontFamily: 'var(--serif)',
                 fontSize: '15px',
                 lineHeight: '1.7',
@@ -176,6 +189,18 @@ export default function Presentations() {
               }}>
                 {p.title[lang]}
               </p>
+              {p.poster && (
+                <img
+                  src={p.poster}
+                  alt="Presentation poster"
+                  style={{
+                    marginTop: '16px',
+                    width: '100%',
+                    borderRadius: 'var(--radius)',
+                    border: '1px solid var(--border)',
+                  }}
+                />
+              )}
             </div>
           ))}
         </div>

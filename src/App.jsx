@@ -8,6 +8,7 @@ import VideoModal from './components/VideoModal'
 import Conversations from './Conversations'
 import About from './About'
 import Presentations from './Presentations'
+import Poster from './Poster'
 import Home from './Home'
 import { LanguageProvider, useLanguage } from './LanguageContext'
 
@@ -243,6 +244,7 @@ export default function App() {
           <Route path="/conversations" element={<Conversations />} />
           <Route path="/about" element={<About />} />
           <Route path="/presentations" element={<Presentations />} />
+          <Route path="/poster" element={<Poster />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>
