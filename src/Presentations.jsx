@@ -7,18 +7,21 @@ const UPCOMING_EVENTS = [
       en: 'Virtual Sign Language Exchange Session: Fall 2026',
       fr: 'Session d\'échange virtuel en langue des signes — Automne 2026',
     },
-    date: { en: 'TBD', fr: 'À déterminer' },
-    time: { en: 'TBD', fr: 'À déterminer' },
-    topics: {
-      en: 'TBD',
-      fr: 'À déterminer',
-    },
-    professors: 'TBD',
+    sessions: [
+      { date: 'Monday, October 5th', time: '10:30-11:20 PST', presenter: 'Alexander Eisenzimmer', language: 'German Sign Language (DGS)' },
+      { date: 'Wednesday, October 7th', time: '10:30-11:20 PST', presenter: 'Nvidia', language: 'English/American Sign Language (ASL)' },
+      { date: 'Friday, October 9th', time: '10:30-11:20 PST', presenter: 'Junhui Yang', language: 'British Sign Language (BSL)' },
+      { date: 'Wednesday, October 14th', time: '10:30-11:20 PST', presenter: 'TBD', language: 'English and/or American Sign Language (ASL)' },
+      { date: 'Friday, October 16th', time: '10:30-11:20 PST', presenter: 'Angoua Tano', language: 'Ivory Coast Sign Language (LSCI)' },
+      { date: 'Monday, October 19th', time: '10:30-11:20 PST', presenter: 'TBD', language: 'Chinese Sign Language (CSL)' },
+      { date: 'Wednesday, October 28th', time: '10:30-11:20 PST', presenter: 'Logan Koch', language: 'English' },
+      { date: 'Friday, October 30th', time: '10:30-11:20 PST', presenter: 'Signapse', language: 'American Sign Language (ASL)' },
+      { date: 'Monday, November 2nd', time: '10:30-11:20 PST', presenter: 'Eyasu Hailu Tamene', language: 'Ethiopian Sign Language (ESL)' },
+    ],
     open_to: {
-      en: 'Open to any sign language student or instructor — from the brand-new to the highly skilled.',
-      fr: 'Ouvert à tout étudiant ou instructeur en langue des signes — du débutant au très expérimenté.',
+      en: 'Any sign language student or instructor — from the brand-new to the highly skilled.',
+      fr: 'Tout étudiant ou instructeur en langue des signes — du débutant au très expérimenté.',
     },
-    contact: 'goldenc5310(at)gmail.com',
   },
 ]
 
@@ -109,24 +112,45 @@ export default function Presentations() {
                 {event.title[lang]}
               </div>
 
+              <table style={{
+                width: '100%',
+                borderCollapse: 'collapse',
+                fontFamily: 'var(--serif)',
+                fontSize: '14px',
+                color: 'var(--ink-soft)',
+                marginBottom: '12px',
+              }}>
+                <thead>
+                  <tr>
+                    <th style={{ textAlign: 'left', padding: '6px 12px 6px 0', borderBottom: '1.5px solid var(--border)', color: 'var(--ink)' }}>
+                      {lang === 'fr' ? 'Date' : 'Date'}
+                    </th>
+                    <th style={{ textAlign: 'left', padding: '6px 12px', borderBottom: '1.5px solid var(--border)', color: 'var(--ink)' }}>
+                      {lang === 'fr' ? 'Heure' : 'Time'}
+                    </th>
+                    <th style={{ textAlign: 'left', padding: '6px 12px', borderBottom: '1.5px solid var(--border)', color: 'var(--ink)' }}>
+                      {lang === 'fr' ? 'Présentateur' : 'Presenter'}
+                    </th>
+                    <th style={{ textAlign: 'left', padding: '6px 0 6px 12px', borderBottom: '1.5px solid var(--border)', color: 'var(--ink)' }}>
+                      {lang === 'fr' ? 'Langue' : 'Language'}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {event.sessions.map((session, j) => (
+                    <tr key={j}>
+                      <td style={{ padding: '8px 12px 8px 0' }}>{session.date}</td>
+                      <td style={{ padding: '8px 12px' }}>{session.time}</td>
+                      <td style={{ padding: '8px 12px' }}>{session.presenter}</td>
+                      <td style={{ padding: '8px 0 8px 12px' }}>{session.language}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <div style={{ fontFamily: 'var(--serif)', fontSize: '14px', color: 'var(--ink-soft)' }}>
-                  <strong>{lang === 'fr' ? 'Date : ' : 'Date: '}</strong>{event.date[lang]}
-                </div>
-                <div style={{ fontFamily: 'var(--serif)', fontSize: '14px', color: 'var(--ink-soft)' }}>
-                  <strong>{lang === 'fr' ? 'Heure : ' : 'Time: '}</strong>{event.time[lang]}
-                </div>
-                <div style={{ fontFamily: 'var(--serif)', fontSize: '14px', color: 'var(--ink-soft)' }}>
-                  <strong>{lang === 'fr' ? 'Sujets : ' : 'Topics: '}</strong>{event.topics[lang]}
-                </div>
-                <div style={{ fontFamily: 'var(--serif)', fontSize: '14px', color: 'var(--ink-soft)' }}>
-                  <strong>{lang === 'fr' ? 'Professeurs et universités : ' : 'Professors & Universities: '}</strong>{event.professors}
-                </div>
-                <div style={{ fontFamily: 'var(--serif)', fontSize: '14px', color: 'var(--ink-soft)' }}>
                   <strong>{lang === 'fr' ? 'Ouvert à : ' : 'Open to: '}</strong>{event.open_to[lang]}
-                </div>
-                <div style={{ fontFamily: 'var(--serif)', fontSize: '14px', color: 'var(--ink-soft)' }}>
-                  <strong>{lang === 'fr' ? 'Pour plus d\'informations : ' : 'For more info: '}</strong>{event.contact}
                 </div>
               </div>
             </div>

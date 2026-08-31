@@ -84,10 +84,10 @@ const TEAM = [
       fr: `Experte en langue des signes danoise`,
     },
     bio: {
-      en: `Bio coming soon.`,
-      fr: `Biographie à venir.`,
-    },
-    photo: '',
+  en: 'Louise Myrup teaches Danish Sign Language as a core subject on the Danish Sign Language and Interpreting programme at University College Copenhagen (KP). She is also the programme coordinator. She also teaches professional studies, including cultural topics and topics related to the Deaf community.',
+  fr: `Louise Myrup enseigne la langue des signes danoise en tant que matière fondamentale dans le cadre du programme « Langue des signes danoise et interprétation » de l'University College Copenhagen (KP). Elle assure également la coordination de ce programme. Par ailleurs, elle dispense des enseignements sur les aspects professionnels du métier, abordant notamment des questions culturelles et des sujets liés à la communauté sourde.`,
+},
+    photo: '/Louise_Myrup.jpg',
     links: [],
   },
 ]
