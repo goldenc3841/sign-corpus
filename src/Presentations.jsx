@@ -13,9 +13,9 @@ const UPCOMING_EVENTS = [
       { date: 'Friday, October 9th', time: '10:30-11:20 PST', presenter: 'Junhui Yang', language: 'British Sign Language (BSL)' },
       { date: 'Wednesday, October 14th', time: '10:30-11:20 PST', presenter: 'TBD', language: 'English and/or American Sign Language (ASL)' },
       { date: 'Friday, October 16th', time: '10:30-11:20 PST', presenter: 'Angoua Tano', language: 'Ivory Coast Sign Language (LSCI)' },
-      { date: 'Monday, October 19th', time: '10:30-11:20 PST', presenter: 'TBD', language: 'Chinese Sign Language (CSL)' },
+      { date: 'Monday, October 19th', time: '10:30-11:20 PST', presenter: 'Leia Clancy (Signapse)', language: 'English/British Sign Language (BSL)' },
       { date: 'Wednesday, October 28th', time: '10:30-11:20 PST', presenter: 'Logan Koch', language: 'English' },
-      { date: 'Friday, October 30th', time: '10:30-11:20 PST', presenter: 'Signapse', language: 'American Sign Language (ASL)' },
+      { date: 'Friday, October 30th', time: '10:30-11:20 PST', presenter: 'TBD', language: 'Chinese Sign Language (CSL)' },
       { date: 'Monday, November 2nd', time: '10:30-11:20 PST', presenter: 'Eyasu Hailu Tamene', language: 'Ethiopian Sign Language (ESL)' },
     ],
     open_to: {
@@ -139,10 +139,10 @@ export default function Presentations() {
                 <tbody>
                   {event.sessions.map((session, j) => (
                     <tr key={j}>
-                      <td style={{ padding: '8px 12px 8px 0' }}>{session.date}</td>
-                      <td style={{ padding: '8px 12px' }}>{session.time}</td>
-                      <td style={{ padding: '8px 12px' }}>{session.presenter}</td>
-                      <td style={{ padding: '8px 0 8px 12px' }}>{session.language}</td>
+                      <td style={{ padding: '8px 12px 8px 0', borderBottom: '1px solid var(--border)', borderRight: '1px solid var(--border)' }}>{session.date}</td>
+                      <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border)', borderRight: '1px solid var(--border)' }}>{session.time}</td>
+                      <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border)', borderRight: '1px solid var(--border)' }}>{session.presenter}</td>
+                      <td style={{ padding: '8px 0 8px 12px', borderBottom: '1px solid var(--border)' }}>{session.language}</td>
                     </tr>
                   ))}
                 </tbody>
