@@ -15,7 +15,7 @@ const UPCOMING_EVENTS = [
       { date: 'Friday, October 16th', time: '10:30-11:20 PST', presenter: 'Angoua Tano', language: 'Ivory Coast Sign Language (LSCI)' },
       { date: 'Monday, October 19th', time: '10:30-11:20 PST', presenter: 'Leia Clancy (Signapse)', language: 'English/British Sign Language (BSL)' },
       { date: 'Wednesday, October 28th', time: '10:30-11:20 PST', presenter: 'Logan Koch', language: 'English' },
-      { date: 'Friday, October 30th', time: '10:30-11:20 PST', presenter: 'TBD', language: 'Chinese Sign Language (CSL)' },
+      { date: 'Friday, October 30th', time: '10:30-11:20 PST', presenter: 'Xiaorong Zhou', language: 'Chinese Sign Language (CSL)' },
       { date: 'Monday, November 2nd', time: '10:30-11:20 PST', presenter: 'Eyasu Hailu Tamene', language: 'Ethiopian Sign Language (ESL)' },
     ],
     open_to: {
