@@ -17,6 +17,7 @@ const UPCOMING_EVENTS = [
       { date: 'Wednesday, October 28th', time: '10:30-11:20 PST', presenter: 'Logan Koch', language: 'English' },
       { date: 'Friday, October 30th', time: '10:30-11:20 PST', presenter: 'Xiaorong Zhou', language: 'Chinese Sign Language (CSL)' },
       { date: 'Monday, November 2nd', time: '10:30-11:20 PST', presenter: 'Eyasu Hailu Tamene', language: 'Ethiopian Sign Language (ESL)' },
+      { date: 'Monday, November 16th', time: '10:30-11:20 PST', presenter: 'Brendan Gramer', language: 'American Sign Language (ASL)' }
     ],
     open_to: {
       en: 'Any sign language student or instructor — from the brand-new to the highly skilled.',
@@ -33,7 +34,7 @@ const PRESENTATIONS = [
     title: {
       en: 'Poster Presentation: Exploring Cross-Cultural and Cross-Linguistic Exchange For Sign Language Students.',
       fr: 'Présentation par affiche : Exploration d\'un échange interculturel et interlinguistique pour les étudiants en langue des signes.',
-  },
+    },
   },
   {
     conference: 'University of Washington Linguistics Colloquium Series',
@@ -42,7 +43,7 @@ const PRESENTATIONS = [
       en: 'Exploring Virtual Cross-Cultural and Cross-Linguistic Exchange for Sign Language Students',
       fr: 'Exploration d\'un échange virtuel interculturel et interlinguistique pour les étudiants en langue des signes',
     },
-     link: '/poster',
+    link: '/poster',
   },
 ]
 
@@ -52,6 +53,14 @@ const LINKS = [
     label: 'Instagram — IDGS Universität Hamburg',
     description: {
       en: 'The Institut für Deutsche Gebärdensprache at the Universität Hamburg\'s Instagram post featuring our virtual exchange.',
+      fr: 'Publication Instagram de l\'Institut für Deutsche Gebärdensprache de l\'Université de Hambourg présentant notre échange virtuel.',
+    },
+  },
+  {
+    url: 'https://www.instagram.com/reel/Dcy47iiRTf0/?stkn=MXZuNDZmMGg0ZDlxbA%3D%3D',
+    label: 'Instagram — IDGS Universität Hamburg',
+    description: {
+      en: 'The Institut für Deutsche Gebärdensprache at the Universität Hamburg\'s Instagram second post featuring our virtual exchange.',
       fr: 'Publication Instagram de l\'Institut für Deutsche Gebärdensprache de l\'Université de Hambourg présentant notre échange virtuel.',
     },
   },
@@ -80,8 +89,9 @@ export default function Presentations() {
           marginBottom: '40px',
           textAlign: 'center',
         }}>
-{lang === 'fr' ? 'Événements, Présentations & Liens' : 'Upcoming Events, Presentations & Links'}
-</h2>
+          {lang === 'fr' ? 'Événements, Présentations & Liens' : 'Upcoming Events, Presentations & Links'}
+        </h2>
+
         {/* Upcoming Events section */}
         <h3 style={{
           fontFamily: 'var(--serif)',
@@ -112,41 +122,43 @@ export default function Presentations() {
                 {event.title[lang]}
               </div>
 
-              <table style={{
-                width: '100%',
-                borderCollapse: 'collapse',
-                fontFamily: 'var(--serif)',
-                fontSize: '14px',
-                color: 'var(--ink-soft)',
-                marginBottom: '12px',
-              }}>
-                <thead>
-                  <tr>
-                    <th style={{ textAlign: 'left', padding: '6px 12px 6px 0', borderBottom: '1.5px solid var(--border)', color: 'var(--ink)' }}>
-                      {lang === 'fr' ? 'Date' : 'Date'}
-                    </th>
-                    <th style={{ textAlign: 'left', padding: '6px 12px', borderBottom: '1.5px solid var(--border)', color: 'var(--ink)' }}>
-                      {lang === 'fr' ? 'Heure' : 'Time'}
-                    </th>
-                    <th style={{ textAlign: 'left', padding: '6px 12px', borderBottom: '1.5px solid var(--border)', color: 'var(--ink)' }}>
-                      {lang === 'fr' ? 'Présentateur' : 'Presenter'}
-                    </th>
-                    <th style={{ textAlign: 'left', padding: '6px 0 6px 12px', borderBottom: '1.5px solid var(--border)', color: 'var(--ink)' }}>
-                      {lang === 'fr' ? 'Langue' : 'Language'}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {event.sessions.map((session, j) => (
-                    <tr key={j}>
-                      <td style={{ padding: '8px 12px 8px 0', borderBottom: '1px solid var(--border)', borderRight: '1px solid var(--border)' }}>{session.date}</td>
-                      <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border)', borderRight: '1px solid var(--border)' }}>{session.time}</td>
-                      <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border)', borderRight: '1px solid var(--border)' }}>{session.presenter}</td>
-                      <td style={{ padding: '8px 0 8px 12px', borderBottom: '1px solid var(--border)' }}>{session.language}</td>
+              <div style={{ overflowX: 'auto', marginBottom: '12px' }}>
+                <table style={{
+                  width: '100%',
+                  minWidth: '480px',
+                  borderCollapse: 'collapse',
+                  fontFamily: 'var(--serif)',
+                  fontSize: '14px',
+                  color: 'var(--ink-soft)',
+                }}>
+                  <thead>
+                    <tr>
+                      <th style={{ textAlign: 'left', padding: '6px 12px 6px 0', borderBottom: '1.5px solid var(--border)', color: 'var(--ink)' }}>
+                        {lang === 'fr' ? 'Date' : 'Date'}
+                      </th>
+                      <th style={{ textAlign: 'left', padding: '6px 12px', borderBottom: '1.5px solid var(--border)', color: 'var(--ink)' }}>
+                        {lang === 'fr' ? 'Heure' : 'Time'}
+                      </th>
+                      <th style={{ textAlign: 'left', padding: '6px 12px', borderBottom: '1.5px solid var(--border)', color: 'var(--ink)' }}>
+                        {lang === 'fr' ? 'Présentateur' : 'Presenter'}
+                      </th>
+                      <th style={{ textAlign: 'left', padding: '6px 0 6px 12px', borderBottom: '1.5px solid var(--border)', color: 'var(--ink)' }}>
+                        {lang === 'fr' ? 'Langue' : 'Language'}
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {event.sessions.map((session, j) => (
+                      <tr key={j}>
+                        <td style={{ padding: '8px 12px 8px 0', borderBottom: '1px solid var(--border)', borderRight: '1px solid var(--border)' }}>{session.date}</td>
+                        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border)', borderRight: '1px solid var(--border)' }}>{session.time}</td>
+                        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border)', borderRight: '1px solid var(--border)' }}>{session.presenter}</td>
+                        <td style={{ padding: '8px 0 8px 12px', borderBottom: '1px solid var(--border)' }}>{session.language}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <div style={{ fontFamily: 'var(--serif)', fontSize: '14px', color: 'var(--ink-soft)' }}>
@@ -204,7 +216,7 @@ export default function Presentations() {
               }}>
                 {p.dates[lang]}
               </div>
- <p style={{
+              <p style={{
                 fontFamily: 'var(--serif)',
                 fontSize: '15px',
                 lineHeight: '1.7',
